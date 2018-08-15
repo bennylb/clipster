@@ -227,6 +227,9 @@ class Daemon(object):
         # Hide window if ESC is pressed
         if event.keyval == Gdk.KEY_Escape:
             self.window.hide()
+        # Hide window if CTRL+g is pressed
+        if event.keyval == Gdk.KEY_g and event.state & Gdk.ModifierType.CONTROL_MASK:
+            self.window.hide()
 
     def delete_handler(self, event, board, tree_select):
         """Delete selected history entries."""
